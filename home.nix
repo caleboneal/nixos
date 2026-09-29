@@ -27,11 +27,19 @@
     enable = true;
     enableCompletion = true;
     shellOptions = ["dotglob"];
+    bashrcExtra = ''
+      eval "$(starship init bash)"
+    '';
   };
 
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    configPath = "config/starship.toml";
   };
 
   programs.home-manager.enable = true;
