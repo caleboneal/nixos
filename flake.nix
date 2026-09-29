@@ -12,7 +12,7 @@
   };
 
   outputs = { self, nixpkgs, nixos-wsl, home-manager, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         nixos-wsl.nixosModules.default
@@ -27,4 +27,11 @@
       ];
     };
   };
+
+  # nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+  #   system = "x86_64-linux";
+  #   modules = [
+
+  #   ];
+  # };
 }

@@ -7,7 +7,7 @@
 
   # packages available in your shell
   home.packages = with pkgs; [
-    
+    github-cli
   ];
 
   programs.git = {
@@ -23,7 +23,16 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash.enable = true;
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    shellOptions = ["dotglob"];
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 
   programs.home-manager.enable = true;
 }
