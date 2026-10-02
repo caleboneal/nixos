@@ -10,6 +10,11 @@
     github-cli
   ];
 
+  programs.helix = {
+    enable = true;
+  };
+  xdg.configFile."helix/config.toml".source = ./config/helix.toml;
+
   programs.git = {
     enable = true;
     settings.user = {
