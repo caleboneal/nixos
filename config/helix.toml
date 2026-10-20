@@ -2,3 +2,14 @@ theme = "ayu_mirage"
 
 [editor]
 mouse = false
+text-width = 100
+rulers = [100]
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true

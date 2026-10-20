@@ -8,6 +8,7 @@
   # packages available in your shell
   home.packages = with pkgs; [
     github-cli
+    zls
   ];
 
   programs.helix = {
