@@ -4,6 +4,7 @@ theme = "ayu_mirage"
 mouse = false
 text-width = 100
 rulers = [100]
+true-color = true
 
 [editor.cursor-shape]
 normal = "block"
