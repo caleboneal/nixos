@@ -1,13 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "usbhid" "sdhci_iproc"]
+  boot.initrd.availableKernelModules = ["xhci_pci" "usbhid" "sdhci_iproc"];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
-  boot.externalPackages = [ ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
