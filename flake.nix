@@ -16,7 +16,24 @@
       system = "x86_64-linux";
       modules = [
         nixos-wsl.nixosModules.default
+        ./machines/wsl.nix
         ./configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.caleb = import ./home.nix;
+        }
+      ];
+    };
+
+    nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./machines/pi.nix
+        ./configuration.nix
+      
 
         home-manager.nixosModules.home-manager
         {

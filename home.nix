@@ -5,8 +5,10 @@
   home.homeDirectory = "/home/caleb";
   home.stateVersion = "26.05";  # match your nixpkgs release, don't change after first build
 
+
   # packages available in your shell
   home.packages = with pkgs; [
+    cursor-cli
     github-cli
     zls
   ];
