@@ -21,6 +21,8 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
+  networking.networkmanager.enable = true;
+
   users.users.caleb = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
