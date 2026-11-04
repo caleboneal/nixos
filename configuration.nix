@@ -11,6 +11,8 @@
     options = "--delete-older-than 30d";
   };
 
+  time.timeZone = "America/New_York";
+
   # Allow unfree packages (needed for things like vscode, some drivers, etc.)
   nixpkgs.config.allowUnfree = true;
 

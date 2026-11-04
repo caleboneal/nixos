@@ -1,8 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](red)\
-$os\
 $username\
 [](bg:peach fg:red)\
 $directory\
@@ -20,6 +18,7 @@ $java\
 $kotlin\
 $haskell\
 $python\
+$zig\
 [](fg:green bg:sapphire)\
 $conda\
 [](fg:sapphire bg:lavender)\
@@ -29,41 +28,17 @@ $cmd_duration\
 $line_break\
 $character"""
 
-palette = 'catppuccin_mocha'
+palette = 'ayu_dark'
 
 [os]
 disabled = false
 style = "bg:red fg:crust"
 
-[os.symbols]
-Windows = " "
-Ubuntu = "󰕈 "
-SUSE = " "
-Raspbian = "󰐿 "
-Mint = "󰣭 "
-Macos = "󰀵 "
-Manjaro = " "
-Linux = "󰌽 "
-Gentoo = "󰣨 "
-Fedora = "󰣛 "
-Alpine = " "
-Amazon = " "
-Android = " "
-AOSC = " "
-Arch = "󰣇 "
-Artix = "󰣇 "
-CachyOS = " "
-CentOS = " "
-Debian = "󰣚 "
-Redhat = "󱄛 "
-RedHatEnterprise = "󱄛 "
-Void = " "
-
 [username]
 show_always = true
 style_user = "bg:red fg:crust"
 style_root = "bg:red fg:crust"
-format = '[$user]($style)'
+format = '[ $user ]($style)'
 
 [directory]
 style = "bg:peach fg:crust"
@@ -71,15 +46,7 @@ format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
-
 [git_branch]
-symbol = ""
 style = "bg:yellow"
 format = '[[ $symbol $branch ](fg:crust bg:yellow)]($style)'
 
@@ -88,80 +55,64 @@ style = "bg:yellow"
 format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
 
 [nodejs]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [bun]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [c]
-symbol = " "
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [rust]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [golang]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [php]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [java]
-symbol = " "
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
-[jj_bookmark]
-symbol = ""
-style = "bg:yellow"
-format = '[[ $symbol $bookmark(@$remote)$diverged( \\(+$overflow_count others\\)) ](fg:crust bg:yellow)]($style)'
-
-[jj_status]
-style = "bg:yellow"
-format = '[[($all )](fg:crust bg:yellow)]($style)'
-
 [kotlin]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [haskell]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [python]
-symbol = ""
 style = "bg:green"
 format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
 
+[zig]
+style = "bg:green"
+format = '[[ zig $version](fg:crust bg:green)]($style)'
+
 [docker_context]
-symbol = ""
 style = "bg:sapphire"
 format = '[[ $symbol( $context) ](fg:crust bg:sapphire)]($style)'
 
 [conda]
-symbol = "  "
 style = "fg:crust bg:sapphire"
 format = '[$symbol$environment ]($style)'
 ignore_base = false
 
 [time]
 disabled = false
-time_format = "%R"
+time_format = "%I:%M"
+use_12hr = true
 style = "bg:lavender"
-format = '[[  $time ](fg:crust bg:lavender)]($style)'
+format = '[[ $time ](fg:crust bg:lavender)]($style)'
 
 [line_break]
 disabled = true
@@ -177,7 +128,7 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 
 [cmd_duration]
 show_milliseconds = true
-format = " in $duration "
+format = "$duration "
 style = "bg:lavender"
 disabled = false
 show_notifications = true
@@ -328,28 +279,28 @@ rosewater = "#e6c08a"
 flamingo = "#f07178"
 pink = "#f26d78"
 mauve = "#d2a6ff"
-red = "#d95757"
-maroon = "#f29668"
-peach = "#ff8f40"
-yellow = "#ffb454"
-green = "#aad94c"
-teal = "#95e6cb"
-sky = "#39bae6"
-sapphire = "#59c2ff"
-blue = "#73b8ff"
-lavender = "#99adbf"
-text = "#bfbdb6"
+red = "#EA6C73"
+maroon = "#f07178"
+peach = "#F9AF4F"
+yellow = "#FFB454"
+green = "#91B362"
+teal = "#90E1C6"
+sky = "#53BDFA"
+sapphire = "#59C2FF"
+blue = "#53BDFA"
+lavender = "#95E6CB"
+text = "#B3B1AD"
 subtext1 = "#9da1aa"
 subtext0 = "#848996"
-overlay2 = "#6c7380"
+overlay2 = "#686868"
 overlay1 = "#555e73"
 overlay0 = "#41495b"
 surface2 = "#2d3442"
 surface1 = "#1b1f29"
 surface0 = "#161a24"
-base = "#141821"
-mantle = "#10141c"
-crust = "#0d1017"
+base = "#0A0E14"
+mantle = "#0A0E14"
+crust = "#01060E"
 
 [palettes.ayu_light]
 rosewater = "#d9b077"
