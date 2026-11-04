@@ -35,9 +35,6 @@
     enable = true;
     enableCompletion = true;
     shellOptions = ["dotglob"];
-    bashrcExtra = ''
-      eval "$(starship init bash)"
-    '';
   };
 
   programs.fzf = {
@@ -47,8 +44,8 @@
 
   programs.starship = {
     enable = true;
-    configPath = "config/starship.toml";
   };
+  xdg.configFile."starship.toml".source = ./config/starship.toml;
 
   programs.home-manager.enable = true;
 }
