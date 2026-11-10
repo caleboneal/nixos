@@ -29,4 +29,7 @@
   ];
 
   services.openssh.enable = true;
+
+  # Keep user services (e.g. the rex server) running while logged out
+  users.users.caleb.linger = true;
 }

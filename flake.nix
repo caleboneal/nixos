@@ -9,9 +9,11 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    rex.url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, home-manager, ... }: {
+  outputs = { self, nixpkgs, nixos-wsl, home-manager, rex, ... }: {
     nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -23,6 +25,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.sharedModules = [ rex.homeManagerModules.default ];
           home-manager.users.caleb = import ./home.nix;
         }
       ];
@@ -39,6 +42,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.sharedModules = [ rex.homeManagerModules.default ];
           home-manager.users.caleb = import ./home.nix;
         }
       ];

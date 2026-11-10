@@ -18,6 +18,12 @@
   };
   xdg.configFile."helix/config.toml".source = ./config/helix.toml;
 
+  programs.rex.enable = true;
+  services.rex.enable = true;
+
+  # Needed for rex's SSH TERM fallback in ~/.ssh/config
+  programs.ssh.enable = true;
+
   programs.git = {
     enable = true;
     settings.user = {
