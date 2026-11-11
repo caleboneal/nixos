@@ -14,6 +14,7 @@
     cursor-cli
     github-cli
     zls
+    julia
   ];
 
   programs.helix = {
