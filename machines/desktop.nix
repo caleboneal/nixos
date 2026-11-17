@@ -1,0 +1,41 @@
+{ config, lib, pkgs, ... }:
+
+{
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")];
+
+  boot.intrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod"] ;
+  boot.intrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/cc6fbcf3-c86c-4b08-ae4d-cdc8c14b3250";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+  { device = "/dev/disk/by-uuid/8B13-9E1E";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
+  };
+
+  swapDevices = [ ];
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+
+  users.users."caleb" = {
+    isNormalUser = true;
+    description "Caleb O'Neal";
+    extraGroups = [ "networkmanager" "wheel" ];
+  }
+
+  system.stateVersion = "26.05";
+}
