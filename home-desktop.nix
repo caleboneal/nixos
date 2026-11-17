@@ -13,6 +13,8 @@
   programs.swaylock.enable = true;
   services.mako.enable = true;
   services.polkit-gnome.enable = true;
+  services.network-manager-applet.enable = true;
+  xsession.preferStatusNotifierItems = true;
 
   programs.waybar = {
     enable = true;
