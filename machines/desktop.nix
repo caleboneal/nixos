@@ -34,7 +34,7 @@
     wifi = {
       macAddress = "preserve";
       scanRandMacAddress = false;
-    }
+    };
   };
 
   programs.niri.enable = true;
