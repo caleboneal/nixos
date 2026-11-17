@@ -8,7 +8,7 @@
     xwayland-satellite
   ];
 
-  programs.foot.enable = true;
+  programs.ghostty.enable = true;
   programs.fuzzel.enable = true;
   programs.swaylock.enable = true;
   services.mako.enable = true;
