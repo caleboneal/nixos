@@ -20,7 +20,9 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/3d5a7597-a023-47d3-96d0-ea77fd56392b"; }];
+  boot.resumeDevice = "/dev/disk/by-uuid/3d5a7597-a023-47d3-96d0-ea77fd56392b";
+  powerManagement.enable = true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
