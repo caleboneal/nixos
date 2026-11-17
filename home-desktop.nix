@@ -9,6 +9,7 @@
   ];
 
   programs.ghostty.enable = true;
+  programs.firefox.enable = true;
   programs.fuzzel.enable = true;
   programs.swaylock.enable = true;
   services.mako.enable = true;

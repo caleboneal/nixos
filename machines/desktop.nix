@@ -29,7 +29,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi = {
+      macAddress = "preserve";
+      scanRandMacAddress = false;
+    }
+  };
 
   programs.niri.enable = true;
 
