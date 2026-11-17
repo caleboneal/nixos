@@ -31,6 +31,24 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
+  programs.niri.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+  };
+
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+
+  fonts.packages = [ pkgs.dejavu_fonts ];
+
   users.users."caleb" = {
     isNormalUser = true;
     description = "Caleb O'Neal";

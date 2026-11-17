@@ -58,7 +58,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.sharedModules = [ rex.homeManagerModules.default ];
-          home-manager.users.caleb = import ./home.nix;
+          home-manager.users.caleb.imports = [ ./home.nix ./home-desktop.nix ];
         }
       ];
     };
