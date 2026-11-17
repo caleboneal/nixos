@@ -11,9 +11,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     rex.url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, nixos-wsl, home-manager, rex, ... }: {
+  outputs = { self, nixpkgs, nixos-wsl, home-manager, rex, zen-browser, ... }: {
     nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -57,7 +63,10 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.sharedModules = [ rex.homeManagerModules.default ];
+          home-manager.sharedModules = [
+            rex.homeManagerModules.default
+            zen-browser.homeModules.beta
+          ];
           home-manager.users.caleb.imports = [ ./home.nix ./home-desktop.nix ];
         }
       ];
