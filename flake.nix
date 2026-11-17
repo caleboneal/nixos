@@ -36,7 +36,6 @@
       modules = [
         ./machines/pi.nix
         ./configuration.nix
-      
 
         home-manager.nixosModules.home-manager
         {
@@ -47,21 +46,21 @@
         }
       ];
     };
-  };
 
-  nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-    system = "x86_64-linux";
-    modules = [
-      ./machines/desktop.nix
-      ./configuration.nix
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./machines/desktop.nix
+        ./configuration.nix
 
-      home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.sharedModules = [ rex.homeManagerModules.default ];
-        home-manager.users.caleb = import ./home.nix;
-      }
-    ];
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.sharedModules = [ rex.homeManagerModules.default ];
+          home-manager.users.caleb = import ./home.nix;
+        }
+      ];
+    };
   };
 }

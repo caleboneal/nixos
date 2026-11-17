@@ -1,11 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")];
+    [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.intrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod"] ;
-  boot.intrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "uas" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
@@ -15,10 +15,10 @@
     };
 
   fileSystems."/boot" =
-  { device = "/dev/disk/by-uuid/8B13-9E1E";
-    fsType = "vfat";
-    options = [ "fmask=0077" "dmask=0077" ];
-  };
+    { device = "/dev/disk/by-uuid/8B13-9E1E";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
 
   swapDevices = [ ];
 
@@ -33,9 +33,9 @@
 
   users.users."caleb" = {
     isNormalUser = true;
-    description "Caleb O'Neal";
+    description = "Caleb O'Neal";
     extraGroups = [ "networkmanager" "wheel" ];
-  }
+  };
 
   system.stateVersion = "26.05";
 }
