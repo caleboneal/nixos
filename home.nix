@@ -11,7 +11,6 @@
 
   # packages available in your shell
   home.packages = with pkgs; [
-    cursor-cli
     github-cli
     zls
     julia
