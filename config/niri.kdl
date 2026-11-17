@@ -34,7 +34,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot-%Y-%m-%d-%H-%M-%S.png"
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+Return hotkey-overlay-title="Open a terminal" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Open the launcher" { spawn "fuzzel"; }
+    Mod+Space hotkey-overlay-title="Open the launcher" { spawn "fuzzel"; }
     Mod+E hotkey-overlay-title="Open the file manager" { spawn "nautilus"; }
     Mod+L hotkey-overlay-title="Lock the screen" { spawn "swaylock" "--color" "1e1e2e"; }
     Mod+Q { close-window; }
