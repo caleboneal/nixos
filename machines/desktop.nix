@@ -39,6 +39,9 @@
     };
   };
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  
   programs.niri.enable = true;
 
   services.greetd = {

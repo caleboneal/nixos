@@ -9,7 +9,14 @@
   ];
 
   programs.zen-browser.enable = true;
-  programs.ghostty.enable = true;
+  programs.ghostty = {
+    enable = true;
+    settings = {
+      theme = "Ayu";
+    };
+    enableBashIntegration = true;
+  };
+  
   programs.firefox.enable = true;
   programs.fuzzel.enable = true;
   programs.swaylock.enable = true;

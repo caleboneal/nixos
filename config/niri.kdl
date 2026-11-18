@@ -12,8 +12,12 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+output "ASUSTek COMPUTER INC VG259QM M4LMQS208372" {
+    mode "1920x1080@239.760"
+}
+
 layout {
-    gaps 12
+    gaps 8
     center-focused-column "never"
     preset-column-widths {
         proportion 0.33333
