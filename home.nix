@@ -14,6 +14,8 @@
     github-cli
     zls
     julia
+    eza
+    jujutsu
   ];
 
   programs.helix = {
@@ -60,6 +62,9 @@
     enable = true;
     enableCompletion = true;
     shellOptions = ["dotglob"];
+    shellAliases = {
+      ls = "eza --group-directories-first";
+    };
   };
 
   programs.fzf = {
